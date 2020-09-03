@@ -1,0 +1,52 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 960px;
+  height: 500px;
+  position: relative;
+  padding: 10 20 0 20;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+path.slice {
+  stroke-width: 2px;
+}
+
+polyline {
+  opacity: 0.3;
+  stroke: black;
+  stroke-width: 2px;
+  fill: none;
+}
+
+#controls {
+  text-align: left;
+  position: absolute;
+  margin: 8px;
+  padding: 1px 5px 5px 5px;
+  background: rgba(230, 230, 250, 0.7);
+  opacity: 0.2;
+  border-radius: 3px;
+  z-index: 1000;
+}
+
+#controls:hover {
+  opacity: 1;
+}
+
+.slider-control {
+  position: relative;
+  top: 3px;
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+.slider-control:active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+
