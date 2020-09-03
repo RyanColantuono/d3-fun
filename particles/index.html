@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>D3</title>
+    <meta charset="UTF-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
+    <script src="//unpkg.com/d3-force-bounce"></script>
+    <script src="//unpkg.com/d3-force-surface"></script>
+    <script src="particles.js"></script>
+  </head>
+<body>
+    <div id="controls">
+      People:
+      <input
+        id="density-control"
+        class="slider-control"
+        type="range"
+        min="2"
+        max="300"
+        step="1"
+        value="120"
+        oninput="onParticleChange(this.value)"
+      />
+      <span id="numparticles-val">120</span>
+      <br />
+      Shelter in Place:
+      <input
+        id="stay-control"
+        class="slider-control"
+        type="range"
+        min="0"
+        max="300"
+        step="1"
+        value="0"
+        oninput="onShelterChange(this.value)"
+      />
+      <span id="shelter-val">0</span>
+      <br />
+      Quarantine:
+      <input
+        id="quarantine-control"
+        class="slider-control"
+        type="range"
+        min="0"
+        max="100"
+        step="1"
+        value="0"
+        oninput="onQuarantineChange(this.value)"
+      />
+    </div>
+  </body>
+</html>
