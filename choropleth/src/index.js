@@ -14,6 +14,11 @@ let unemployment = new Map();
 let yearIndex = 0;
 const years = [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016];
 const color = d3.scaleQuantize().domain([1.0, 30.0]).range(d3.schemeOrRd[9]);
+const tooltip = d3
+  .select("body")
+  .append("div")
+  .attr("class", "tooltip")
+  .style("opacity", 0);
 
 //set up year slider
 const slider = sliderBottom()
@@ -98,6 +103,23 @@ function ready([data]) {
     .append("path")
     .on("click", clicked)
     .attr("class", "counties")
+    .on("mouseover", function (d) {
+      tooltip.transition().duration(200).style("opacity", 0.9);
+      const html =
+        "<p>" +
+        d.properties.name +
+        " County</p>" +
+        "<p>" +
+        unemployment.get(d.id)[yearIndex] +
+        "% Unemployment</p>";
+      tooltip
+        .html(html)
+        .style("left", d3.event.pageX + "px")
+        .style("top", d3.event.pageY - 28 + "px");
+    })
+    .on("mouseout", function (d) {
+      tooltip.transition().duration(500).style("opacity", 0);
+    })
     .attr("fill", function (d) {
       return unemployment.get(d.id)
         ? color(unemployment.get(d.id)[yearIndex])
