@@ -19,3 +19,14 @@ body {
   stroke: #ffffff;
   stroke-width: 0.15px;
 }
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 10px;
+  font: 12px sans-serif;
+  background: white;
+  border: 1px gray solid;
+  border-radius: 8px;
+  pointer-events: none;
+}
